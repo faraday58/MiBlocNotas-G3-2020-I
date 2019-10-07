@@ -39,11 +39,68 @@ namespace MiBlocNotas_G3_2020_I
                 MessageBox.Show(error.Message, "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+
             finally
             {
                 sw.Close();
                 fs.Close();
             }
+        }
+
+        private void AbrirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FileStream fs = null;
+            StreamReader sr = null;
+            try
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Texto (*.txt)|*.txt";
+                if( openFileDialog.ShowDialog() == DialogResult.OK )
+                {
+                    fs = new FileStream(openFileDialog.FileName, FileMode.Open, FileAccess.Read);
+                    sr = new StreamReader(fs);
+                    
+
+                    string cadena = sr.ReadLine();
+                    string[] cabeceras = cadena.Split(',');
+                    //txtbAutor.Text = cabeceras[0];
+                    //  txtbNombre.Text = cabeceras[1];
+                    //txtbFecha.Text = cabeceras[2];
+                    txtbAutor.Text = File.GetAccessControl(openFileDialog.FileName).GetOwner(typeof(System.Security.Principal.NTAccount)).ToString();
+
+                    DirectoryInfo directoryInfo = new DirectoryInfo(openFileDialog.FileName);
+                    txtbNombre.Text = directoryInfo.Name;
+                    
+                    txtbFecha.Text = File.GetCreationTime(openFileDialog.FileName).Date.ToString();;
+                    string cont = "";
+
+                    while( cadena != null )
+                    {
+                        cadena = sr.ReadLine();
+                        cont = cont + cadena + "\n"; 
+                    }
+                    richtxtbBloc.Text = cont;
+
+                }
+
+
+            }
+            catch(IOException error)
+            {
+
+                MessageBox.Show(error.Message, "Error al Abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            finally
+            {
+                sr.Close();
+                fs.Close();
+
+            }
+
+
+
+
         }
     }
 }
