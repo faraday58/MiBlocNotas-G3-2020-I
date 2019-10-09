@@ -94,7 +94,15 @@ namespace MiBlocNotas_G3_2020_I
                     }
                     else if (openFileDialog.FilterIndex==2)
                     {
-                      
+                        BinaryReader br = new BinaryReader(fs);
+
+                        double fecha = br.ReadDouble();
+                        string autor = br.ReadString();
+                        txtbFecha.Text = fecha.ToString();
+                        txtbAutor.Text = autor;
+
+                        br.Close();
+                        fs.Close();
 
 
 
@@ -169,6 +177,39 @@ namespace MiBlocNotas_G3_2020_I
             }
 
             
+
+        }
+
+        private void DestruirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FileStream fs = null;
+            try
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Texto(*.txt)|*.txt|Binario(*.bin)|*.bin";
+                if( openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    fs = new FileStream(openFileDialog.FileName, FileMode.Open, FileAccess.Write);
+                    Random aleatorio = new Random();
+
+                    for( int i= 1; i<=10;i++   )
+                    {
+                        fs.Seek(i, SeekOrigin.Begin);
+                        fs.WriteByte((byte)aleatorio.Next(255));
+                    }                   
+                }
+
+            }catch(IOException error)
+            {
+                MessageBox.Show(error.Message,"No se pudo borrar archivo");
+            }
+            finally
+            {
+                if( fs != null)
+                {
+                    fs.Close();
+                }
+            }
 
         }
     }

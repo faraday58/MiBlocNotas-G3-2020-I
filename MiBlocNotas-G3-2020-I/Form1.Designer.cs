@@ -46,6 +46,7 @@
             this.txtbFecha = new System.Windows.Forms.TextBox();
             this.richtxtbBloc = new System.Windows.Forms.RichTextBox();
             this.guardarComoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.destruirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,6 +67,7 @@
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.abrirToolStripMenuItem,
             this.guardarToolStripMenuItem,
+            this.destruirToolStripMenuItem,
             this.guardarComoToolStripMenuItem,
             this.toolStripMenuItem1,
             this.salirToolStripMenuItem});
@@ -190,6 +192,13 @@
             this.guardarComoToolStripMenuItem.Text = "Guardar como..";
             this.guardarComoToolStripMenuItem.Click += new System.EventHandler(this.GuardarComoToolStripMenuItem_Click);
             // 
+            // destruirToolStripMenuItem
+            // 
+            this.destruirToolStripMenuItem.Name = "destruirToolStripMenuItem";
+            this.destruirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.destruirToolStripMenuItem.Text = "Destruir";
+            this.destruirToolStripMenuItem.Click += new System.EventHandler(this.DestruirToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -233,6 +242,7 @@
         private System.Windows.Forms.TextBox txtbFecha;
         private System.Windows.Forms.RichTextBox richtxtbBloc;
         private System.Windows.Forms.ToolStripMenuItem guardarComoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem destruirToolStripMenuItem;
     }
 }
 
