@@ -65,17 +65,11 @@ namespace MiBlocNotas_G3_2020_I
                 
                 if( openFileDialog.ShowDialog() == DialogResult.OK )
                 {
+                    fs = new FileStream(openFileDialog.FileName, FileMode.Open, FileAccess.Read);
 
-
-                    if(openFileDialog.FilterIndex == 1    )
+                    if (openFileDialog.FilterIndex == 1    )
                     {
-                        0
-
-
-
-                    }else
-                    {
-                        fs = new FileStream(openFileDialog.FileName, FileMode.Open, FileAccess.Read);
+                        
                         sr = new StreamReader(fs);
 
                         string cadena = sr.ReadLine();
@@ -97,6 +91,13 @@ namespace MiBlocNotas_G3_2020_I
                             cont = cont + cadena + "\n";
                         }
                         richtxtbBloc.Text = cont;
+                    }
+                    else if (openFileDialog.FilterIndex==2)
+                    {
+                      
+
+
+
                     }
                 }
                 else
@@ -122,8 +123,12 @@ namespace MiBlocNotas_G3_2020_I
             }
             finally
             {
-                sr.Close();
-                fs.Close();
+                if( sr != null && fs!= null)
+                {
+                    sr.Close();
+                    fs.Close();
+                }
+                
             }
 
 
