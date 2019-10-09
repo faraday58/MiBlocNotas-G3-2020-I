@@ -45,6 +45,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtbFecha = new System.Windows.Forms.TextBox();
             this.richtxtbBloc = new System.Windows.Forms.RichTextBox();
+            this.guardarComoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,6 +66,7 @@
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.abrirToolStripMenuItem,
             this.guardarToolStripMenuItem,
+            this.guardarComoToolStripMenuItem,
             this.toolStripMenuItem1,
             this.salirToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
@@ -109,14 +111,14 @@
             // 
             this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
             this.copiarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.copiarToolStripMenuItem.Text = "&Copiar";
             // 
             // pegarToolStripMenuItem
             // 
             this.pegarToolStripMenuItem.Name = "pegarToolStripMenuItem";
             this.pegarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.pegarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pegarToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.pegarToolStripMenuItem.Text = "&Pegar";
             // 
             // acercaDeToolStripMenuItem
@@ -181,6 +183,13 @@
             this.richtxtbBloc.TabIndex = 3;
             this.richtxtbBloc.Text = "";
             // 
+            // guardarComoToolStripMenuItem
+            // 
+            this.guardarComoToolStripMenuItem.Name = "guardarComoToolStripMenuItem";
+            this.guardarComoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.guardarComoToolStripMenuItem.Text = "Guardar como..";
+            this.guardarComoToolStripMenuItem.Click += new System.EventHandler(this.GuardarComoToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,6 +232,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtbFecha;
         private System.Windows.Forms.RichTextBox richtxtbBloc;
+        private System.Windows.Forms.ToolStripMenuItem guardarComoToolStripMenuItem;
     }
 }
 
